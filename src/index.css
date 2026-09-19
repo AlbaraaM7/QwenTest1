@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #050608;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #131722;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.emerald-glow {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5),
+              0 0 40px rgba(16, 185, 129, 0.3),
+              0 0 60px rgba(16, 185, 129, 0.1);
+}
+
+.amber-glow {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5),
+              0 0 40px rgba(245, 158, 11, 0.3),
+              0 0 60px rgba(245, 158, 11, 0.1);
+}
+
+/* Mouse follow glow */
+.mouse-glow {
+  position: relative;
+}
+
+.mouse-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), 
+    rgba(16, 185, 129, 0.6) 0%, 
+    transparent 50%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mouse-glow:hover::before {
+  opacity: 1;
+}
+
+/* Volumetric light rays animation */
+@keyframes volumetricPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scaleY(1.2);
+  }
+}
+
+.volumetric-ray {
+  animation: volumetricPulse 4s ease-in-out infinite;
+}
+
+/* Blur text reveal animation */
+@keyframes blurReveal {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.blur-reveal {
+  animation: blurReveal 1s ease-out forwards;
+}
+
+/* Stargate portal zoom */
+.portal-zoom {
+  transition: all 0.1s linear;
+}
+
+/* Infinite drift animation */
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.drift-animation {
+  animation: drift 30s linear infinite;
+}
+
+.drift-animation:hover {
+  animation-play-state: paused;
+}
+
+/* Ghost typography gradient */
+.ghost-typography {
+  background: linear-gradient(to right, 
+    rgba(255, 255, 255, 0.14) 0%, 
+    rgba(255, 255, 255, 0.06) 50%, 
+    transparent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Bento grid card hover */
+.bento-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+}
+
+/* Button hover effects */
+.btn-emerald {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-emerald::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-emerald:hover::before {
+  opacity: 1;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Range slider custom styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #131722;
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #10b981;
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: #131722;
+  border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #10b981;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  transition: transform 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
